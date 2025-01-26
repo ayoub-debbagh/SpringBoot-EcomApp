@@ -5,7 +5,7 @@
 /ecom/.idea/
 /ecom/*.iml
 
-/data/
+/ecom/data/
 
 # Ignore logs
 *.log
