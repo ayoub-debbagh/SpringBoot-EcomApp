@@ -1,4 +1,4 @@
-package com.e_commerce.ecom.security;
+package com.polling.polling_api.security;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtException;
@@ -10,8 +10,8 @@ import org.springframework.stereotype.Component;
 import java.util.Date;
 
 @Component
-public class JwtUtils {
-    @Value("${JWT_SECRET}")
+public class JwtUtil {
+    @Value("${JWT_SECRET_KEY}")
     private String jwtSecret;
 
     private final int expirationMs = 1000 * 3600 * 24;
