@@ -1,9 +1,9 @@
 # Ignore Maven target directory
-/polling-api/target/
+/ecom/target/
 
 # Ignore IntelliJ IDEA project files
-/polling-api/.idea/
-/polling-api/*.iml
+/ecom/.idea/
+/ecom/*.iml
 
 /data/
 
