@@ -20,35 +20,17 @@ public class UserServiceImpl implements UserService {
     private PasswordEncoder passwordEncoder;
 
 
-    @Override
-    public UserDTO registerUser(UserDTO userDTO) {
-        if(userRepository.findByEmail(userDTO.getEmail()).isPresent()) {
-            throw new RuntimeException("Email already exists");
-        }
 
-        User user = User.builder()
-                .username(userDTO.getUsername())
-                .email(userDTO.getEmail())
-                .password(passwordEncoder.encode(userDTO.getPassword()))
-                .roles(Collections.singleton("ROLE_USER"))
-                .build();
-
-        userRepository.save(user);
-
-        userDTO.setPassword(null);
-        return userDTO;
-
-    }
 
     @Override
-    public UserDTO getUserByUsername(String username) {
+    public User getUserByUsername(String username) {
         User user = userRepository.findByUsername(username)
                 .orElseThrow(() -> new RuntimeException("User not found"));
 
-        return mapToDTO(user);
+        return user;
     }
 
-    private UserDTO mapToDTO(User user) {
+    public UserDTO mapToDTO(User user) {
         return UserDTO.builder()
                 .username(user.getUsername())
                 .email(user.getEmail())
